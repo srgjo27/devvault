@@ -25,6 +25,11 @@ class ContributionsHeatmap extends Widget implements HasForms
         $this->selectedYear = $this->selectedYear ?? now()->year;
     }
 
+    public function updatedSelectedYear($value): void
+    {
+        $this->dispatch('year-changed', year: $value);
+    }
+
     protected function getFormSchema(): array
     {
         $currentYear = now()->year;
